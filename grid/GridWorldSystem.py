@@ -1,4 +1,4 @@
-from grid.DiscreteRobotSystem import DiscreteRobotSystem
+from discrete.DiscreteStateSystem import DiscreteStateSystem
 from rems.typing import MapRule
 import numpy as np
 
@@ -9,12 +9,15 @@ stay_rule = MapRule(['up', 'down', 'right', 'left'],
                         to_list=True)
 
 
-class GridWorldSystem(DiscreteRobotSystem):
+class GridWorldSystem(DiscreteStateSystem):
     # input rule
     def __init__(self, grid, prob_error=0):
         super().__init__()
         self.grid = grid
         self.prob_error = prob_error
+
+        self.A = {'up', 'down', 'left', 'right', 'stay'}
+        self.S = set(self.grid.grid_keys.values())
 
         # action space (up, down, right, left, stay)
         self.inpt.add_def(dict(up=bool, down=bool, right=bool, left=bool, stay=bool)).set_rule([stay_rule])
