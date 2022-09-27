@@ -3,7 +3,7 @@ from rems.Config import SimConfig
 from rems.inputs import KeyboardInput
 from rems.outputs import FileOutput
 from rems.utils import time_str
-from line import LineAnimation, LineWorldSystem
+from continuous import LineAnimation, LineWorldSystem
 
 o = Operator(debug_mode=True)
 i = KeyboardInput(dict(v=0, y=0), enable_keys=['up', 'down'])

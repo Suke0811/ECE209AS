@@ -12,5 +12,5 @@ class GridAnimation(OutputBase):
         plt.show(block=False)
 
     def process(self, state, inpt, outpt, timestamp, info):
-        self.grid.show(*state.filter(['x', 'y']).list())
+        self.grid.show(*self.grid.get_location(state['s']))
 

@@ -35,7 +35,7 @@ class GridWorldSystem(DiscreteStateSystem):
         state_x, state_y = list(self.state.values())
         h_num = []
         for k in goals.keys():
-            goal_x, goal_y = self.grid.get_index(k)
+            goal_x, goal_y = self.grid.get_location(k)
             num = (np.linalg.norm(np.array([goal_x, goal_y]) - np.array([state_x, state_y])))
             if num == 0.0:
                 return self.outpt.update(0.0)
