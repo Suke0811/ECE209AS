@@ -15,17 +15,17 @@ class LineAnimation(OutputBase):
         self.show(*ret_list)
 
 
-    def show(self, v, y):
+    def show(self, y, v):
         if self.fig is None:
             self.fig, self.ax = plt.subplots()
             self.line, = self.ax.plot([], marker="p", ms=10)
-            self.ax.set(xlabel='v', ylabel='y')
+            self.ax.set(xlabel='y', ylabel='v')
             plt.show(block=False)
 
 
-        self.line.set_data(v,y)
+        self.line.set_data(y, v)
         self.fig.canvas.draw()
         MARGIN = 1
-        self.ax.set_xlim([min(v) - MARGIN, max(v) + MARGIN])
-        self.ax.set_ylim([min(y) - MARGIN, max(y) + MARGIN])
+        self.ax.set_xlim([min(y) - MARGIN, max(y) + MARGIN])
+        self.ax.set_ylim([min(v) - MARGIN, max(v) + MARGIN])
         self.fig.canvas.flush_events()

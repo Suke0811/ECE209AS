@@ -1,7 +1,6 @@
 from rems import Operator
 from rems.Config import SimConfig
 from grid import GridWorldSystem, Grid2DMap, GridAnimation
-from grid import GridWorldDef
 from rems.inputs import KeyboardInput
 from rems.outputs import FileOutput
 from rems.utils import time_str
@@ -35,8 +34,8 @@ g.set_goals({'20': 'Rs', '22': 'Rd'})
 #               robot_definition_args, robot_implementation_args,
 #               outputs=OutputSystem,
 #               inpt=InputSystem)
-o.add_robot(GridWorldDef, GridWorldSystem,
-            def_args=dict(grid=g, prob_error=0.1),
+o.add_robot(robot=GridWorldSystem,
+            robot_args=dict(grid=g, prob_error=0.1),
             outputs=(GridAnimation(g), FileOutput(filepath='out/grid' + time_str() + '.csv')))
 # if no InputSystem is assigned, REMS system wide input is used
 
