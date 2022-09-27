@@ -18,7 +18,8 @@ i = KeyboardInput(init_state=dict(x=0, y=0), enable_keys=['up', 'down', 'right',
 o.set_input(i)
 
 
-# create a grid map"alice", "bob", "charlie", "eve"
+# create a grid map state names: "alice", "bob", "charlie", "eve"
+# note that order matters:
 grid_location = dict(
         charlie=(0, 1), eve=(1, 1),
         alice=(0, 0), bob=(1, 0),
