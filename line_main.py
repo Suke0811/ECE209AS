@@ -6,7 +6,7 @@ from rems.utils import time_str
 from continuous import LineAnimation, LineWorldSystem
 
 o = Operator(debug_mode=True)
-i = KeyboardInput(dict(v=0, y=0), enable_keys=['up', 'down'])
+i = KeyboardInput(dict(v=0, y=0), enable_keys=['up', 'down'],  wait_for=True)
 o.set_input(i)
 
 o.add_robot(robot=LineWorldSystem,

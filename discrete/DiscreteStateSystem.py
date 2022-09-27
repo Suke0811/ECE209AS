@@ -1,7 +1,7 @@
-from continuous import ContinuousStateSystem
+from rems.robots import RobotBase
 
 
-class DiscreteStateSystem(ContinuousStateSystem):
+class DiscreteStateSystem(RobotBase):
     def __init__(self):
         super().__init__()
         # create your own S, A, O

@@ -9,10 +9,3 @@ class ContinuousStateSystem(RobotBase):
         # outputs
         self.outpt.add_def(dict())
 
-    def transition_probability(self, s, a, s_n):
-        raise NotImplementedError
-
-    def observation_probability(self, s, a, o):
-        raise NotImplementedError
-
-

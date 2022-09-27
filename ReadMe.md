@@ -9,7 +9,6 @@ pip install -r requirements.txt
 ```
 This will install all dependencies for our system.
 
-
 ___
 # Tasks
 
@@ -34,10 +33,10 @@ root
 │   line_main.py                    (An example run code for number line)   
 │
 └───continuous
-│   │   ContinuousStateSystem.py    (base class)
+│   │   LinWorldSystem.py    (number line robot)
 │   │  
 │
 └───discrete
-    │   DiscreteStateSystem,py      (base class)
-    │
+    │   DiscreteStateSystem.py      (base class)
+    │   GridWorldSystem.py          (Grid world robot)
 ```  

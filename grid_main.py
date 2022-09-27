@@ -12,7 +12,7 @@ o = Operator(debug_mode=True)
 
 # using keyboard input
 # init_state=initial state, enable_keys = keys to use (None will use all)
-i = KeyboardInput(init_state=dict(x=0, y=0), enable_keys=['up', 'down', 'right', 'left', 'space'])
+i = KeyboardInput(init_state=dict(x=0, y=0), enable_keys=['up', 'down', 'right', 'left', 'space'], wait_for=True)
 
 # set REMS system wide input (all robots added to operator will receive the same input)
 o.set_input(i)
@@ -40,4 +40,4 @@ o.add_robot(robot=GridWorldSystem,
             robot_args=dict(grid=g, prob_error=0.1),
             outputs=(GridAnimation(g), FileOutput(filepath='out/grid' + time_str() + '.csv')))
 
-o.run(SimConfig(max_duration=10, dt=1, realtime=True, start_time=0, run_speed=1))
+o.run(SimConfig(max_duration=10, dt=1, realtime=False, start_time=0, run_speed=1))
