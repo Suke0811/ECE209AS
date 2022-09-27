@@ -4,7 +4,6 @@ from grid import GridWorldSystem, Grid2DMap, GridAnimation
 from rems.inputs import KeyboardInput
 from rems.outputs import FileOutput
 from rems.utils import time_str
-from line import LineAnimation, LineWorldSystem, LineWorldDef
 
 
 # Init middleware (REMS) operator
@@ -23,22 +22,19 @@ o.set_input(i)
 g = Grid2DMap(5, 5)
 OBSTACLE = 'X'
 # set obstacle
-g.set_obstacles({'11': OBSTACLE, '21': OBSTACLE, '13': OBSTACLE, '23': OBSTACLE})
+g.set_obstacles({'11': -1, '21': -1, '13': -1, '23': -1})
 # set goal
-g.set_goals({'20': 'Rs', '22': 'Rd'})
+g.set_goals({'20': 1, '22': 1})
 
 
 
 # add_robot
-# o.add_robot(robot_definition, robot_implementation,
-#               robot_definition_args, robot_implementation_args,
-#               outputs=OutputSystem,
-#               inpt=InputSystem)
+# o.add_robot(robot, robot_args,
+#               outputs=OutputSystem)
 o.add_robot(robot=GridWorldSystem,
             robot_args=dict(grid=g, prob_error=0.1),
             outputs=(GridAnimation(g), FileOutput(filepath='out/grid' + time_str() + '.csv')))
 # if no InputSystem is assigned, REMS system wide input is used
-
 
 
 o.run(SimConfig(max_duration=10, dt=1, realtime=True, start_time=0, run_speed=1))

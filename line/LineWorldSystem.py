@@ -13,7 +13,6 @@ rocket_keyboard = MapRule(['up', 'down'],
                     ['f'],
                     to_list=True)
 
-
 class LineWorldSystem(RobotBase):
     def __init__(self,  prob_crash=0.1, mass=1, v_max=10, y_max=50, amp=1,potential_field=True, sensor_noise=True, speed_wobble=True):
         super().__init__()
@@ -27,14 +26,12 @@ class LineWorldSystem(RobotBase):
         self._sn = sensor_noise
         self._sp = speed_wobble
 
-    def define(self, *args, **kwargs):
-        # action space (up, down, right, left, stay)
+        # action (up, down, right, left, stay)
         self.inpt.add_def(dict(f=float)).set_rule(rocket_keyboard)
-        # state space (x, y)
+        # state (x, y)
         self.state.add_def(dict(y=float, v=float))
         # outputs
         self.outpt.add_def(dict(y=float))
-        super().define()
 
     def drive(self, inpt, t):
         y, v = self.state.list()
