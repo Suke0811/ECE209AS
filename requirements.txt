@@ -1,1 +1,1 @@
-git+https://github.com/Suke0811/REMS.git@setup_py
+git+https://github.com/Suke0811/REMS.git@main
